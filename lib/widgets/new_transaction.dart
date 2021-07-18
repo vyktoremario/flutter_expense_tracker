@@ -33,6 +33,12 @@ class _NewTransactionState extends State<NewTransaction> {
     return Card(
       elevation: 5,
       child: Container(
+        decoration: BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage('assets/images/waiting.png'),
+            fit: BoxFit.cover,
+          ),
+        ),
         padding: EdgeInsets.all(10),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.end,
