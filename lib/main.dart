@@ -2,7 +2,7 @@ import 'dart:io';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+// import 'package:flutter/services.dart';
 
 import './widgets/transaction_list.dart';
 import './widgets/new_transaction.dart';
@@ -52,28 +52,12 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
-  // String titleInput = '';
-  // String amountInput = '';
-
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  final List<Transaction> _userTransactions = [
-    // Transaction(
-    //   id: 't1',
-    //   title: 'New Phone',
-    //   amount: 80.67,
-    //   date: DateTime.now(),
-    // ),
-    // Transaction(
-    //   id: 't2',
-    //   title: '2TB Hard Drive',
-    //   amount: 30.84,
-    //   date: DateTime.now(),
-    // )
-  ];
+  final List<Transaction> _userTransactions = [];
 
   List<Transaction> get _recentTransactions {
     return _userTransactions.where((transaction) {
@@ -125,7 +109,7 @@ class _MyHomePageState extends State<MyHomePage> {
     final isLandScape = mediaQuery.orientation == Orientation.landscape;
     final appBar = Platform.isIOS
         ? CupertinoNavigationBar(
-            middle: Text(
+            middle: const Text(
               'My Expense Tracker',
             ),
             trailing: Row(
@@ -133,7 +117,7 @@ class _MyHomePageState extends State<MyHomePage> {
               children: [
                 GestureDetector(
                   onTap: () => _startAddNewTransaction(context),
-                  child: Icon(
+                  child: const Icon(
                     CupertinoIcons.add,
                   ),
                 )
@@ -141,11 +125,11 @@ class _MyHomePageState extends State<MyHomePage> {
             ),
           ) as ObstructingPreferredSizeWidget
         : AppBar(
-            title: Text('My Expense Tracker'),
+            title: const Text('My Expense Tracker'),
             actions: <Widget>[
               IconButton(
                 onPressed: () => _startAddNewTransaction(context),
-                icon: Icon(
+                icon: const Icon(
                   Icons.add,
                 ),
               )
@@ -221,7 +205,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ? Container()
                 : FloatingActionButton(
                     hoverColor: Theme.of(context).primaryColorDark,
-                    child: Icon(Icons.add),
+                    child: const Icon(Icons.add),
                     onPressed: () => _startAddNewTransaction(context),
                   ),
           );
